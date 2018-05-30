@@ -1,0 +1,21 @@
+﻿@model bool
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Manage Subscriptions</h4>
+    <hr />@if (Model)
+    {
+        <h1>Thank You For Subscribing!</h1>
+    }
+    else
+    {
+        <h1>You have been successfully unsubscribed</h1>
+    }
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

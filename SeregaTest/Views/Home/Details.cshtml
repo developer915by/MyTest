@@ -1,0 +1,54 @@
+﻿@model SeregaTest.Data.Event
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Model.StartDate.ToShortDateString()
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Model.EndDate.ToShortDateString()
+        </dd>
+        @foreach (var property in Model.Properties)
+        {
+            <dt>
+                @property.Name
+            </dt>
+            <dd>@property.Value</dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Subscribe", "Subscribe", new { id = Model.Id }) |
+    @Html.ActionLink("My Subscriptions", "Subscriptions") |
+    <br />
+    @Html.ActionLink("Back to List", "Index") |
+
+</p>
+
